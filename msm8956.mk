@@ -86,12 +86,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
 
-# Device-specific Settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
-
 # Doze mode
 PRODUCT_PACKAGES += \
+    CustomDoze \
     XiaomiDoze
 
 # Audio
@@ -407,6 +404,10 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
@@ -460,10 +461,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
-
-# Widevine
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-service.widevine
 
 # VR
 PRODUCT_PACKAGES += \
@@ -521,11 +518,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     AdvancedControls
 
-#Zuk Extras
-PRODUCT_PACKAGES += \
-    ZukPref
-
-
 # Cast hacks
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
@@ -550,3 +542,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 PRODUCT_ODM_PROPERTIES += \
     ro.vendor.qti.va_odm.support=1
+
+# DPM
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.dpm.feature=0
